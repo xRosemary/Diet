@@ -28,12 +28,12 @@ class Standard(models.Model):
     AMDR = models.FloatField(verbose_name="宏量元素可接受范围", default=0, validators=[MinValueValidator(0)])
     UL = models.FloatField(verbose_name="可耐受最高摄入量", default=0, validators=[MinValueValidator(0)])
 
-    nid = models.ForeignKey("Nutrition", verbose_name="年龄", on_delete=models.CASCADE)
+    ageInfo = models.ForeignKey("Nutrition", verbose_name="年龄", on_delete=models.CASCADE)
 
     # def __str__(self):
     #     return "平均需要量:%s| 推荐摄入量:%s| 适宜摄入量:%s| 宏量元素可接受范围:%s| 可耐受最高摄入量:%s" % (self.EAR, self.RNI, self.AI, self.AMDR, self.UL)
     def __str__(self):
-        return "%s岁%s的摄入标准" % (self.nid.age, self.TypeInfo)
+        return "%s岁%s的摄入标准" % (self.ageInfo.age, self.TypeInfo)
 
     class Meta:
         verbose_name_plural='营养摄入标准'

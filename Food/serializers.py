@@ -15,7 +15,7 @@ class NutritionModelSerializer(serializers.ModelSerializer):
 
 class StandardSerializer(serializers.ModelSerializer):
     TypeInfo = NutTypeSerializer()
-    nid = NutritionModelSerializer()
+    ageInfo = NutritionModelSerializer()
     class Meta:
         model = Standard
         fields = "__all__"

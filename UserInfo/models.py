@@ -15,6 +15,9 @@ class UserInfo(models.Model):
     phone_number = models.CharField(verbose_name="电话号码", max_length=20)
     occupation = models.CharField(verbose_name="职业", max_length=30)
 
+    def __str__(self):
+        return "%s" % self.userName
+
     class Meta:
         verbose_name_plural='用户信息'
 

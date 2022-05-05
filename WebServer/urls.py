@@ -22,4 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/users/', include("UserInfo.urls")),
     path('api/food/', include("Food.urls")),
+    path('api/blog/', include("Blog.urls")),
+    path(r'mdeditor/', include('mdeditor.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Standard, Nutrition, NutType
+from .models import Standard, Nutrition, NutType, Composition, Food
 
 class NutTypeSerializer(serializers.ModelSerializer):
     
@@ -18,4 +18,18 @@ class StandardSerializer(serializers.ModelSerializer):
     ageInfo = NutritionModelSerializer()
     class Meta:
         model = Standard
+        fields = "__all__"
+
+    
+class FoodSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Food
+        fields = "__all__"
+    
+class CompositionSerializer(serializers.ModelSerializer):
+    type = NutTypeSerializer()
+    food = FoodSerializer()
+    class Meta:
+        model = Composition
         fields = "__all__"

@@ -37,3 +37,26 @@ class Standard(models.Model):
 
     class Meta:
         verbose_name_plural='营养摄入标准'
+
+class Composition(models.Model):
+    content = models.IntegerField(verbose_name="含量")
+    type = models.ForeignKey("NutType", verbose_name="成分", on_delete=models.CASCADE)
+    food = models.ForeignKey("Food", verbose_name="食物", on_delete=models.CASCADE)
+    
+class Food(models.Model):
+    name = models.CharField(verbose_name="食物名字", max_length=20)
+    type_choice = (
+        (0, "水果"),
+        (1, "蔬菜"),
+        (2, "豆类"),
+        (3, "面食"),
+        (4, "奶制品"),
+        (5, "肉类"),
+        (6, "油、脂肪"),
+    )
+
+    type = models.SmallIntegerField(verbose_name="食品类型", choices=type_choice)
+    # composition = models.ForeignKey("Composition", verbose_name="营养成分", on_delete=models.CASCADE)
+    img = models.ImageField(verbose_name='食物图片', null=True, upload_to='img/')
+    effect = models.CharField(verbose_name="功效", max_length=100)
+    taboo = models.CharField(verbose_name="禁忌", max_length=100)

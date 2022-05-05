@@ -42,7 +42,13 @@ class Composition(models.Model):
     content = models.IntegerField(verbose_name="含量")
     type = models.ForeignKey("NutType", verbose_name="成分", on_delete=models.CASCADE)
     food = models.ForeignKey("Food", verbose_name="食物", on_delete=models.CASCADE)
-    
+
+    def __str__(self):
+        return "%s的%s含量" % (self.food, self.type)
+
+    class Meta:
+        verbose_name_plural='食物营养成分'
+
 class Food(models.Model):
     name = models.CharField(verbose_name="食物名字", max_length=20)
     type_choice = (
@@ -60,3 +66,9 @@ class Food(models.Model):
     img = models.ImageField(verbose_name='食物图片', null=True, upload_to='img/')
     effect = models.CharField(verbose_name="功效", max_length=100)
     taboo = models.CharField(verbose_name="禁忌", max_length=100)
+
+    def __str__(self):
+        return "%s" % (self.name)
+
+    class Meta:
+        verbose_name_plural='食物信息'

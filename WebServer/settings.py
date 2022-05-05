@@ -132,4 +132,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # 图片储存根路径
 MEDIA_ROOT = os.path.join('media')
 # 图片访问url
-MEDIA_URL = '/IMG/'
+MEDIA_URL = 'media/'

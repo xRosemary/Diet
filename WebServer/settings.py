@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'simpleui',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -83,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'diet',
         'USER':'root',
-        'PASSWORD':'123456',
+        'PASSWORD':'d338da073a4fe024',
         'HOST':'127.0.0.1',
         'PORT':'3306',
     }

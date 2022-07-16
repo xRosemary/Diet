@@ -117,3 +117,4 @@ dmypy.json
 8cc164d47468f433251653c8ab7971f1_venv/
 logs/
 .wget-log
+.gunicorn.conf
